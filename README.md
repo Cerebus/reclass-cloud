@@ -14,9 +14,14 @@ deployment, and has predictable and repeatable results.  cloud-init user-data is
 
 Managing lots of YAML files for systems in various versions would be ugly, though.
 
-Enter [reclass](https://github.com/madduck/reclass).  reclass is a tool for defining system configuration data in a structured external repository that can be leveraged by a configuration maangement toolchain.  reclass models are written in YAML, and the reclass engine handles finding, merging, and resolving variable references between them.
+Enter [reclass](https://github.com/madduck/reclass).  reclass is a tool for defining system 
+configuration data in a structured external repository that can be leveraged by a configuration 
+maangement toolchain.  reclass models are written in YAML, and the reclass engine handles finding, 
+merging, and resolving variable references between them.
 
-Together, reclass and cloud-init can solve this problem.  reclass files can be written to merge and
-generate cloud-config data, which can then be fed into system instantiation as normal.  Instances can be composed in test with access keys, and then recomposed in deployment without--making the instance fully immutable.
+Together, reclass and cloud-init can solve the problem of managing an immutable infrastructure.  
+reclass files can be written to generate cloud-config data directly, which can then be fed into 
+cloud-init as user data.  Instances can be composed in test with access keys, and then recomposed 
+in deployment without--making the instance fully immutable.
 
 This script depends on specific conventions in your model.  
